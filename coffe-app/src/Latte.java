@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 // Inherit from Coffee using the extends keyword
 public class Latte extends Coffee {
     // Declare two attributes to store the milk type and syrup flavor (String)

@@ -5,12 +5,14 @@ public class Espresso extends Coffee {
     int numberOfShots;
 
     // Constructor to initialize all attributes
-    public Espresso(String name, String roast, double price, int numberOfShots) {
-        // Use super to call the Coffee constructor
+    public Espresso(String name, String roast, double price, int numberOfShots) throws ArithmeticException {
         super(name, roast, price);
-
         // Initialize numberOfShots using this
-        this.numberOfShots = numberOfShots;
+        if (numberOfShots <= 0){
+            throw new ArithmeticException("Number of shots must be greater than 0!");
+        } else{
+            this.numberOfShots = numberOfShots;
+        }
     }
     // Implement the grindBeans method
     @Override

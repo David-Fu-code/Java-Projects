@@ -36,7 +36,16 @@ public class CoffeeMachine {
                     System.out.print("How many servings would you like? (a number please): ");
                     int numberOfShots = keyboard.nextInt();
 
-                    Espresso myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
+                    Espresso myEspresso = null;
+                    try{
+                        myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
+                    }catch (ArithmeticException e){
+                        System.out.print("How many servings would you like? (a number please): ");
+                        numberOfShots = keyboard.nextInt();
+                    }finally {
+                        myEspresso = new Espresso(espressoName, espressoRoast, espressoPrice, numberOfShots);
+                    }
+
                     coffeMaker.prepareCoffe(myEspresso);
 
                     // This methods are now implemented in the CoffeeMaker class
